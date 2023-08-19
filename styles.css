@@ -1,0 +1,99 @@
+/* Reset some default margins and paddings */
+body,
+h1,
+h2,
+h3,
+p,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+}
+
+img {
+  min-width: 100px;
+  max-width: 700px;
+  margin: 20px;
+}
+
+main {
+  display: flex;
+
+  flex: 1;
+  padding: 20px;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+#search__bar {
+  padding: 9px;
+  width: 200px;
+}
+
+#btn__submit {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:hover {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#weather__details {
+  text-align: left;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#form__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  flex-shrink: 0;
+}
