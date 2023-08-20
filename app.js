@@ -5,15 +5,28 @@ const submitBtn = document.querySelector("#btn__submit");
 const query = document.querySelector("#search__bar");
 let searchQuery;
 
-const getImg = queryString => {
+//////////// THE PROMISE WAY ////////////////
+// const getImg = queryString => {
+//   const fetchURL = `https://api.giphy.com/v1/gifs/translate?api_key=${giphyAPI}&s=${searchQuery}`
+
+//   fetch(fetchURL, { mode: "cors" })
+//     .then(res => res.json())
+//     .then(res => img.src = res.data.images.original.url)
+// }
+
+
+//////////// THE ASYNC/AWAIT WAY ////////////////
+
+const getImg = async (queryString) => {
   const fetchURL = `https://api.giphy.com/v1/gifs/translate?api_key=${giphyAPI}&s=${searchQuery}`
 
-  fetch(fetchURL, { mode: "cors" })
-    .then(res => res.json())
-    .then(res => img.src = res.data.images.original.url)
+  const response = await fetch(fetchURL, { mode: "cors" });
+  const resData = await response.json();
+  img.src = resData.data.images.original.url
 }
 
-img.src = "https://images.unsplash.com/photo-1481349518771-20055b2a7b24?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1539&q=80";
+
+// EVENT LISTENERS
 
 submitBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -21,4 +34,3 @@ submitBtn.addEventListener("click", (e) => {
   getImg(searchQuery);
 })
 
-console.log(query.value);
